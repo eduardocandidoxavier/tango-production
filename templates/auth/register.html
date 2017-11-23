@@ -1,0 +1,21 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title_block %}
+  Register
+{% endblock %}
+
+{% block body_block %}
+    <h1>Register Here</h1><br />
+    <form id="user_form" action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form user_form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+            {% bootstrap_icon "star" %} Submit
+        </button>
+    {% endbuttons %}
+    </form>
+{% endblock %}
+
